@@ -1,126 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gary Pittman</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free reflection guide from Gary Pittman to help you question the life you are living and decide what comes next.">
+  <title>10 Questions to Help You Decide What Comes Next | Gary Pittman</title>
   <style>
+    :root {
+      --cream: #f5efe5;
+      --paper: #ffffff;
+      --charcoal: #292724;
+      --muted: #635d56;
+      --orange: #a64d2d;
+      --orange-dark: #7d351f;
+      --line: #ded4c5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f1ec;
-      color: #222;
+      min-width: 320px;
+      color: var(--charcoal);
+      background: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 680px;
+    a { color: inherit; }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 2.5rem));
       margin: 0 auto;
-      padding: 2rem 1.25rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      align-items: center;
+      gap: clamp(2.5rem, 6vw, 5.5rem);
+      padding: clamp(3.5rem, 9vw, 7.25rem) 0 clamp(3rem, 7vw, 5.5rem);
+    }
+
+    .eyebrow, .section-label {
+      margin: 0 0 1rem;
+      color: var(--orange-dark);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 1.35rem;
+      font-size: clamp(2.65rem, 6vw, 5.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .lead {
+      max-width: 37rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.4rem;
+      padding: 0.8rem 1.25rem;
+      border: 2px solid var(--orange);
+      border-radius: 0.25rem;
+      background: var(--orange);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); }
+
+    .portrait-wrap { position: relative; justify-self: center; }
+
+    .portrait-wrap::before {
+      position: absolute;
+      z-index: 0;
+      inset: 9% -11% -8% 11%;
+      border-radius: 50%;
+      background: #e3c8b2;
+      content: "";
+    }
+
+    .portrait {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(100%, 340px);
+      aspect-ratio: 1;
+      border: 10px solid var(--paper);
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 20px 48px rgba(41, 39, 36, 0.16);
+    }
+
+    .creator {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 1fr);
+      gap: clamp(1.75rem, 5vw, 4rem);
+      padding: clamp(2.5rem, 6vw, 4.5rem);
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .creator p:last-child { margin-bottom: 0; }
+
+    .creator-copy { max-width: 37rem; color: var(--muted); font-size: 1.08rem; }
+
+    .text-link {
+      color: var(--orange-dark);
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      text-underline-offset: 0.2em;
+    }
+
+    .more {
+      padding: clamp(3rem, 7vw, 5rem) 0;
       text-align: center;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .more h2 { margin-bottom: 0.75rem; }
+
+    .more p { max-width: 36rem; margin: 0 auto 1.75rem; color: var(--muted); }
+
+    .more-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
     }
 
-    .profile-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 4px solid #f4f1ec;
-    }
-
-    h1 {
-      margin: 0.25rem 0;
-      font-size: 2.2rem;
-    }
-
-    .tagline {
-      font-size: 1.15rem;
-      font-weight: bold;
-      margin: 0.5rem 0 1rem;
-    }
-
-    .intro {
-      text-align: left;
-      margin: 1.5rem 0;
-    }
-
-    .links {
-      margin-top: 1.5rem;
-    }
-
-    .links a {
-      display: block;
-      background: #333;
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem;
-      border-radius: 12px;
-      margin: 0.75rem 0;
-      font-weight: bold;
-    }
-
-    .links a:hover {
-      background: #444;
-    }
+    .more-links a { color: var(--charcoal); text-underline-offset: 0.2em; }
+    .more-links a:hover { color: var(--orange-dark); }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      padding: 1.5rem 0 2.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      text-align: center;
     }
 
-    footer a {
-      color: #555;
-      margin: 0 0.5rem;
+    footer a { margin: 0 0.45rem; text-underline-offset: 0.2em; }
+
+    a:focus-visible {
+      outline: 3px solid #1d64b5;
+      outline-offset: 4px;
+      border-radius: 0.15rem;
+    }
+
+    @media (max-width: 720px) {
+      .site-shell { width: min(100% - 2rem, 680px); }
+      .hero, .creator { grid-template-columns: 1fr; }
+      .hero { padding-top: 3.5rem; text-align: center; }
+      h1, .lead { margin-right: auto; margin-left: auto; }
+      .portrait-wrap { grid-row: 1; }
+      .portrait { width: min(72vw, 300px); }
+      .creator { padding: 2.25rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
     }
   </style>
 </head>
-
 <body>
-
-  <div class="container">
-    <div class="card">
-
-      <img src="profile.png" alt="Gary Pittman" class="profile-photo">
-
-      <h1>Gary Pittman</h1>
-
-      <p class="tagline">Starting over. Learning in public. Building a life I’m proud of.</p>
-
-      <div class="intro">
-        <p>At 61, I’m facing fears I’ve avoided for decades, including speaking on camera.</p>
-
-        <p>I’m documenting what it looks like to rebuild confidence, improve my health, learn AI, build online income, and become the person I kept putting off becoming.</p>
-
-        <p>This is the process, mistakes included.</p>
-      </div>
-
-      <div class="links">
-        <a href="https://www.tiktok.com/@garypittman1" target="_blank" rel="noopener noreferrer">Follow me on TikTok</a>
-        <a href="https://thequietwitness.substack.com" target="_blank" rel="noopener noreferrer">The Quiet Witness</a>
-        <a href="https://midwestdigitaltools.com" target="_blank" rel="noopener noreferrer">Midwest Digital Tools</a>
-        <a href="mailto:gary@garypittman.com">Email Me</a>
-      </div>
-
+  <main>
+    <div class="site-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A free reflection guide from Gary Pittman</p>
+          <h1 id="page-title">10 Questions to Help You Decide What Comes Next</h1>
+          <p class="lead">A free reflection guide to help you question the life you’re living, get honest about what you want, and take one intentional step forward.</p>
+          <a class="button" href="https://gary-pittman-hef4ea.subscribepage.io" target="_blank" rel="noopener noreferrer">Send Me the Questions</a>
+        </div>
+        <div class="portrait-wrap">
+          <img class="portrait" src="profile.png" alt="Gary Pittman">
+        </div>
+      </section>
     </div>
 
-    <footer>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-    </footer>
-  </div>
+    <section class="creator" aria-labelledby="creator-title">
+      <div>
+        <p class="section-label">Meet the creator</p>
+        <h2 id="creator-title">Gary Pittman</h2>
+      </div>
+      <div class="creator-copy">
+        <p>Gary helps people question the life they are living, decide what they want next, and build it intentionally.</p>
+        <p>He shares the honest work of starting over, building confidence, and making room for a life that feels more like your own.</p>
+        <p><a class="text-link" href="https://www.tiktok.com/@garypittman1" target="_blank" rel="noopener noreferrer">Follow Gary on TikTok</a></p>
+      </div>
+    </section>
 
-</body>
-</html>
-```
+    <div class="site-shell">
+      <section class="more" aria-labelledby="more-title">
+        <p class="section-label">Elsewhere</p>
+        <h2 id="more-title">More from Gary</h2>
+        <p>Thoughtful writing and practical digital tools for people building what is next.</p>
+        <nav class="more-links" aria-label="More from Gary">
+          <a href="https://thequietwitness.substack.com" target="_blank" rel="noopener noreferrer">The Quiet Witness</a>
+          <a href="https://midwestdigitaltools.com" target="_blank" rel="noopener noreferrer">Midwest Digital Tools</a>
+          <a href="mailto:gary@garypittman.com">Email Gary</a>
+        </nav>
+      </section>
 
+      <footer>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </footer>
+    </div>
+  </main>
 </body>
 </html>
